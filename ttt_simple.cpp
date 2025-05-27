@@ -34,33 +34,23 @@ void draw_grid(string code){
 //Post: Returns 1 if there is a winning arrangement for player c returns 0 otherwise
 int check_win(string code, char c){
     
-    for(int i = 0; i < code.size(); i++){
-        if(code[0] == c){
-            if(code[0] == code[3] && code[3] == code[6]){
-                return 1;
-            }
-            else if(code[0] == code[1] && code[0] == code[2]){
-                return 1;
-            }
-            else if(code[0] == code[4] && code[4] == code[8]){
-                return 1;
-            }
-            
-        }
-        else if(code[1] == c){
-            if(code[1] == code[4] && code[4] == code[7]){
-                return 1;
-            }
-        }
-        else if(code[2] == c){
-            if(code[2] == code[5] && code[5] == code[8]){
-                return 1;
-            }
-            else if(code[2] == code[4] && code[4] == code[6]){
-                return 1;
-            }
-        }
+    if(code[0] == c){
+        if(code[1] == c && code[2] == c) return 1; // top row
+        if(code[3] == c && code[6] == c) return 1; // left column
+        if(code[4] == c && code[8] == c) return 1; // main diagonal
     }
+
+    if(code[1] == c && code[4] == c && code[7] == c) return 1; // middle column
+
+    if(code[2] == c){
+        if(code[5] == c && code[8] == c) return 1; // right column
+        if(code[4] == c && code[6] == c) return 1; // anti-diagonal
+    }
+
+    if(code[3] == c && code[4] == c && code[5] == c) return 1; // middle row
+
+    if(code[6] == c && code[7] == c && code[8] == c) return 1; // bottom row
+
     return 0;
 }
 
