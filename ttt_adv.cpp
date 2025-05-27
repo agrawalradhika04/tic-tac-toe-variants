@@ -1,5 +1,3 @@
-//Radhika Agrawal
-//HW1 - CS210
 // Program to play a 2-player game of tic-tac-toe.
 // Keeps track of the moves of each player, and only takes legal moves
 // Checks and reports who won (or a draw)
